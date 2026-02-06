@@ -6,7 +6,6 @@
 @tailwind utilities;
 
 @layer base {
-
   /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.

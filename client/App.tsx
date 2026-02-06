@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
 import { Layout } from "@/components/layout/Layout";
+import PublicLayout from "@/components/PublicLayout";
 import Login from "./pages/Login";
 import CitizenDashboard from "./pages/CitizenDashboard";
 import OfficerDashboard from "./pages/OfficerDashboard";
@@ -9,6 +10,13 @@ import Projects from "./pages/Projects";
 import MapView from "./pages/MapView";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
+import Index from "./pages/Index";
+import Drainage from "./pages/Drainage";
+import Infrastructure from "./pages/Infrastructure";
+import AirQuality from "./pages/AirQuality";
+import BloodBank from "./pages/BloodBank";
+import Emergency from "./pages/Emergency";
+import SchoolTransport from "./pages/SchoolTransport";
 
 // Protected route wrapper
 function ProtectedRoute({
@@ -43,8 +51,17 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public Routes */}
-        {!isAuthenticated && <Route path="/" element={<Login />} />}
+        {/* Public Routes - Civic Services */}
+        <Route path="/" element={<Index />} />
+        <Route path="/drainage" element={<Drainage />} />
+        <Route path="/infrastructure" element={<Infrastructure />} />
+        <Route path="/air-quality" element={<AirQuality />} />
+        <Route path="/blood-bank" element={<BloodBank />} />
+        <Route path="/emergency" element={<Emergency />} />
+        <Route path="/school-transport" element={<SchoolTransport />} />
+
+        {/* Authentication Route */}
+        <Route path="/login" element={<Login />} />
 
         {/* Protected Routes - Dashboard */}
         <Route
@@ -189,17 +206,7 @@ export default function App() {
           }
         />
 
-        {/* Default redirect */}
-        <Route
-          path="/"
-          element={
-            isAuthenticated ? (
-              <Navigate to="/dashboard" replace />
-            ) : (
-              <Login />
-            )
-          }
-        />
+
 
         {/* Error Routes */}
         <Route

@@ -1,5 +1,5 @@
-﻿import { Button } from "@/components/ui/button";
-import PublicLayout from "@/components/PublicLayout";
+import { Button } from "@/components/ui/button";
+import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import {
   Building2,
@@ -80,7 +80,7 @@ const FEATURES = [
 
 export default function Index() {
   return (
-    <PublicLayout>
+    <Layout>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
@@ -274,6 +274,6 @@ export default function Index() {
           </Link>
         </div>
       </section>
-    </PublicLayout>
+    </Layout>
   );
 }
